@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>AYURWEB - Ayurvedic Remedies</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYURWEB - Ayurvedic Remedies</title>
+    <meta name="description" content="Discover natural Ayurvedic remedies for better health. Explore various health conditions and their treatments.">
+    <meta property="og:title" content="AYURWEB - Ayurvedic Remedies">
+    <meta property="og:description" content="Explore natural Ayurvedic remedies for various health conditions.">
+    <meta property="og:image" content="99999999.jpg"> 
+    <meta property="og:url" content="http://127.0.0.1:3000/ASEP_PROJECT/1homepage.html"> <!-- Replace with actual URL -->
+    <meta itemprop="name" content="AYURWEB - Ayurvedic Remedies">
+    <meta itemprop="description" content="Discover natural Ayurvedic remedies for better health.">
+    <meta itemprop="image" content="99999999.jpg"> 
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(99999999.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 77, 64, 0.95);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #4CAF50;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: rgba(0, 77, 64, 0.9);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            border-radius: 8px;
+            z-index: 1001;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .openbtn:hover {
+            background-color: #00695c;
+            transform: translateY(-2px);
+        }
+
+        .page-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            left: 0;
+            transition: left 0.5s;
+            padding: 0 20px;
+            align-items: center;
+        }
+
+        .container {
+            margin-bottom: 2rem;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .header {
+            background-color: rgba(0, 77, 64, 0.9);
+            color: white;
+            padding: 30px;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .search-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            margin-left: 100px;
+        }
+
+        .search-section h2 {
+            color: #004d40;
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+        
+        input[type="text"] {
+            width: 85%;
+            padding: 15px 20px;
+            border: 2px solid #004d40;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #00695c;
+            box-shadow: 0 0 10px rgba(0,77,64,0.2);
+        }
+
+        #suggestions {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            width: 85%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: none;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        #suggestions li {
+            padding: 12px 20px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+            transition: all 0.2s ease;
+        }
+
+        #suggestions li:last-child {
+            border-bottom: none;
+        }
+
+        #suggestions li:hover {
+            background-color: #f5f5f5;
+            color: #004d40;
+        }
+
+        .btn {
+            background-color: #004d40;
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background-color: #00695c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .search-section {
+                padding: 30px 20px;
+                margin: 0 15px;
+            }
+
+            input[type="text"] {
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+
+        /* Background Animation Keyframes */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes gradientOverlay {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Modified body background */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(
+        rgba(0, 77, 64, 0.7),
+        rgba(0, 0, 0, 0.8)
+    ), url(99999999.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+#suggestions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: none;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(0, 77, 64, 0.3),
+        rgba(0, 105, 92, 0.3),
+        rgba(0, 121, 107, 0.3)
+    );
+    background-size: 400% 400%;
+    animation: gradientOverlay 15s ease infinite;
+    pointer-events: none;
+}
+
+/* Enhanced header styles */
+.header {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 77, 64, 0.95),
+        rgba(0, 105, 92, 0.95)
+    );
+    color: white;
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    animation: fadeInDown 1.2s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header h1 {
+    animation: pulse 2s ease-in-out infinite;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Enhanced search section */
+.search-section {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.95),
+        rgba(255, 255, 255, 0.98)
+    );
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 1.2s ease-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    background: linear-gradient(
+        135deg,
+        rgba(214, 209, 209, 0.98),
+        rgba(255, 255, 255, 1)
+    );
+}
+
+/* Enhanced sidebar */
+.sidebar {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 77, 64, 0.97),
+        rgba(0, 105, 92, 0.97)
+    );
+    backdrop-filter: blur(15px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced button styles */
+.btn {
+    background: linear-gradient(
+        135deg,
+        #004d40,
+        #00695c
+    );
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    background: linear-gradient(
+        135deg,
+        #00695c,
+        #004d40
+    );
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* Enhanced suggestions box */
+#suggestions {
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.98),
+        rgba(255, 255, 255, 0.95)
+    );
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 77, 64, 0.1);
+}
+
+#suggestions li {
+    background: transparent;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+#suggestions li:hover {
+    background: linear-gradient(
+        to right,
+        rgba(0, 77, 64, 0.1),
+        rgba(0, 105, 92, 0.1)
+    );
+}
+
+/* Menu button enhancement */
+.openbtn {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 77, 64, 0.9),
+        rgba(0, 105, 92, 0.9)
+    );
+    backdrop-filter: blur(5px);
+    animation: fadeInDown 1s ease-out;
+}
+
+.openbtn:hover {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 105, 92, 0.9),
+        rgba(0, 77, 64, 0.9)
+    );
+}
+
+/* Ripple effect for buttons */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(40);
+        opacity: 0;
+    }
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn:active::after {
+    animation: ripple 1s ease-out;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1)), url(99999999.jpg);
+    color: #160101;
+}
+
+.header.dark-mode {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.95));
+}
+
+.sidebar.dark-mode {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.97), rgba(0, 0, 0, 0.97));
+}
+
+.search-section.dark-mode {
+    background: linear-gradient(135deg, rgba(50, 50, 50, 0.95), rgba(50, 50, 50, 0.98));
+}
+
+.btn.dark-mode {
+    background: linear-gradient(135deg, #333, #444);
+}
+
+.btn.dark-mode:hover {
+    background: linear-gradient(135deg, #444, #333);
+}
+.shop-now {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+.shop-now a {
+    color: #fff;
+    display: block;
+    margin: 5px 0;
+    transition: color 0.3s;
+}
+.shop-now a:hover {
+    color: #00796b;
+}
+
+/* Leaves Container */
+.leaves-container {
+    position: fixed; /* Fixed position to stay at the bottom */
+    bottom: 0; /* Align to the bottom of the viewport */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    display: inline-flex;
+    justify-content: space-around; /* Space leaves evenly */
+    align-items: flex-end; /* Align leaves to the bottom */
+    margin: 15px 0; /* Adjust margin as needed */
+    height: 150px; /* Set height for the container */
+    pointer-events: none; /* Prevent interaction with leaves */
+}
+
+/* Leaf Style */
+.leaf {
+    width: 40px; /* Base size for leaves */
+    height: 30px; /* Base size for leaves */
+    background-color: #4CAF50; /* Default leaf color */
+    border-radius: 50% 50% 0 0; /* Rounded top */
+    position: relative;
+    animation: sway 3s ease-in-out infinite; /* Animation properties */
+}
+
+/* Individual Leaf Colors */
+.leaf1 { background-color: #4CAF50; }
+.leaf2 { background-color: #66BB6A; }
+.leaf3 { background-color: #81C784; }
+.leaf4 { background-color: #A5D6A7; }
+.leaf5 { background-color: #C8E6C9; }
+.leaf6 { background-color: #4CAF50; }
+.leaf7 { background-color: #66BB6A; }
+.leaf8 { background-color: #81C784; }
+.leaf9 { background-color: #A5D6A7; }
+.leaf10 { background-color: #C8E6C9; }
+.leaf11 { background-color: #4CAF50; }
+.leaf12 { background-color: #66BB6A; }
+.leaf13 { background-color: #81C784; }
+.leaf14 { background-color: #A5D6A7; }
+.leaf15 { background-color: #C8E6C9; }
+.leaf16 { background-color: #4CAF50; }
+.leaf17 { background-color: #66BB6A; }
+.leaf18 { background-color: #81C784; }
+.leaf19 { background-color: #A5D6A7; }
+.leaf20 { background-color: #C8E6C9; }
+.leaf21 { background-color: #4CAF50; }
+.leaf22 { background-color: #66BB6A; }
+.leaf23 { background-color: #81C784; }
+.leaf24 { background-color: #A5D6A7; }
+.leaf25 { background-color: #C8E6C9; }
+.leaf26 { background-color: #4CAF50; }
+.leaf27 { background-color: #66BB6A; }
+.leaf28 { background-color: #81C784; }
+.leaf29 { background-color: #A5D6A7; }
+.leaf30 { background-color: #C8E6C9; }
+
+
+/* Leaf Animation */
+@keyframes sway {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg); /* Original position */
+    }
+    50% {
+        transform: translateY(-10px) rotate(1deg); /* Sway up and rotate */
+    }
+}
+
+/* Adjust animation timing for each leaf */
+.leaf1 { animation-delay: 0s; }
+.leaf2 { animation-delay: 0.2s; }
+.leaf3 { animation-delay: 0.4s; }
+.leaf4 { animation-delay: 0.6s; }
+.leaf5 { animation-delay: 0.8s; }
+.leaf6 { animation-delay: 1s; }
+.leaf7 { animation-delay: 1.2s; }
+.leaf8 { animation-delay: 1.4s; }
+.leaf9 { animation-delay: 1.6s; }
+.leaf10 { animation-delay: 1.8s; }
+.leaf11 { animation-delay: 2s; }
+.leaf12 { animation-delay: 2.2s; }
+.leaf13 { animation-delay: 2.4s; }
+.leaf14 { animation-delay: 2.6s; }
+.leaf15 { animation-delay: 2.8s; }
+.leaf16 { animation-delay: 3s; }
+.leaf17 { animation-delay: 3.2s; }
+.leaf18 { animation-delay: 3.4s; }
+.leaf19 { animation-delay: 3.6s; }
+.leaf20 { animation-delay: 3.8s; }
+.leaf21 { animation-delay: 4s; }
+.leaf22 { animation-delay: 4.2s; }
+.leaf23 { animation-delay: 4.4s; }
+.leaf24 { animation-delay: 4.6s; }
+.leaf25 { animation-delay: 4.8s; }
+.leaf26 { animation-delay: 5s; }
+.leaf27 { animation-delay: 5.2s; }
+.leaf28 { animation-delay: 5.4s; }
+.leaf29 { animation-delay: 5.6s; }
+.leaf30 { animation-delay: 5.8s; }
+
+/* News Section Styles */
+#newsSection {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    animation: fadeInUp 3s ease-out;
+}
+
+#newsSection h3 {
+    color: #004d40;
+    margin-bottom: 15px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#newsList {
+    list-style: none;
+    padding: 0;
+}
+
+#newsList li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 1s;
+}
+
+#newsList li:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+#newsList li a {
+    text-decoration: none;
+    color: #004d40;
+    font-weight: bold;
+}
+
+#newsList li a:hover {
+    text-decoration: underline;
+}
+.tab-button {
+    padding: 10px 20px;
+    background: #004d40;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Add transition */
+}
+
+.tab-button:hover {
+    background: #00695c; /* Change background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+.sidebar a {
+    transition: background 0.3s, transform 0.2s; /* Add transition */
+}
+
+.sidebar a:hover {
+    background-color: #00695c; /* Change background on hover */
+    transform: translateX(5px); /* Slide effect */
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Fade effect */
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1; /* Show when active */
+}
+
+    </style>
+</head>
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    
+    <div  class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="1homepage.html" target="_blank"><i class="fas fa-home"></i>Home</a>
+        <a href="2categories.html" target="_blank"><i class="fas fa-th-list"></i> Categories</a>
+        <a href="3knowmore.html" target="_blank"><i class="fas fa-info-circle"></i> Know More</a>
+        <a href="4contactus.html" target="_blank"><i class="fas fa-envelope"></i> Contact Us</a>
+    </div>
+    
+    
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="openNav()">×</a>
+        <a href="1homepage.html" target="_blank">
+            <i class="fas fa-home"></i>Home</a>
+        <a href="2categories.html"><i class="fas fa-th-list"></i> Categories</a>
+        <a href="3knowmore.html" target="_blank"><i class="fas fa-info-circle"></i> Know More</a>
+        <a href="4contactus.html" target="_blank"><i class="fas fa-envelope"></i> Contact Us</a>
+        <a href="user_info_form.html"><i class="fas fa-user"></i> User Information Form</a>
+    
+        <div class="shop-now">
+            <h4 style="color: #fff; padding: 10px;">Shop Now</h4>
+            <a href="https://www.amazon.in/s?k=ayurveda+products&crid=25PM7M133DU05&sprefix=ayurveda+%2Caps%2C202&ref=nb_sb_ss_ts-doa-p_5_9" target="_blank"><i class="fab fa-amazon"></i> Amazon</a>
+            <a href="https://www.patanjaliayurved.net/" target="_blank"><i class="fas fa-store"></i> Patanjali</a>
+            <a href="https://www.flipkart.com/health-care/home-medicines/general-wellness/ayurvedic/pr?sid=hlc%2Cah4%2Ciav%2Cjnk" target="_blank"><i class="fas fa-shopping-cart"></i> Flipkart</a>
+            <a href="https://pharmeasy.in/health-care" target="_blank"><i class="fas fa-medkit"></i> Pharm Easy</a>
+        </div>
+    </div>
+    <button class="openbtn" onclick="openNav()">☰ Menu</button>
+
+    
+    
+    <section class="section" id="newsSection" aria-labelledby="newsHeading">
+        <h3 id="newsHeading">Latest Healthcare News</h3>
+        <ul id="newsList" role="list">
+            <li role="listitem"><a href="https://www.who.int/news" target="_blank">WHO News</a></li>
+            <li role="listitem"><a href="https://www.bbc.com/news/health" target="_blank">BBC Health News</a></li>
+            <li role="listitem"><a href="https://health.economictimes.indiatimes.com/news" target="_blank">Economic Times Health News</a></li>
+            <li role="listitem"><a href="https://www.cnbctv18.com/healthcare/" target="_blank">CNBC TV18 Healthcare News</a></li>
+            <li role="listitem"><a href="https://www.nbcnews.com/health" target="_blank">NBC News</a></li>
+            <li role="listitem"><a href="https://www.indiatoday.in/health" target="_blank">India Today</a></li>
+        </ul>
+    </section>
+
+    <div class="page-wrapper" id="pageWrapper">
+        
+        <div id="main" class="container">
+            <div class="header">
+                <h1>AYURWEB</h1>
+                <p>Discover Natural Ayurvedic Remedies for Better Health</p>   
+            </div>
+            
+            <div class="search-section">
+                <h2>Find Your Natural Remedy</h2>
+                <input type="text" id="searchInput" class="form-control" placeholder="Enter the name of your disease..." onkeyup="showSuggestions()">
+                <ul id="suggestions" class="list-group mt-2"></ul>
+                <button class="btn btn-primary mt-2" onclick="searchRemedy()">Search Remedies</button>
+            </div>
+
+            <div id="relatedKeywords" class="related-keywords" style="display: none;">
+                <h3>Related Keywords:</h3>
+                <ul id="relatedKeywordsList"></ul>
+            </div>
+
+            <div id="synonymSuggestions" class="synonym-suggestions" style="display: none;">
+                <h3>Synonyms:</h3>
+                <ul id="synonymList"></ul>
+            </div>
+        </div>
+    </div>
+    <button class="openbtn" onclick="openNav()">☰ Menu</button>
+<button class="btn" id="darkModeToggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+
+<div class="leaves-container" aria-hidden="true">
+    <div class="leaf leaf1" role="presentation"></div>
+    <div class="leaf leaf2" role="presentation"></div>
+    <div class="leaf leaf3" role="presentation"></div>
+    <div class="leaf leaf4" role="presentation"></div>
+    <div class="leaf leaf5" role="presentation"></div>
+    <div class="leaf leaf6" role="presentation"></div>
+    <div class="leaf leaf7" role="presentation"></div>
+    <div class="leaf leaf8" role="presentation"></div>
+    <div class="leaf leaf9" role="presentation"></div>
+    <div class="leaf leaf10" role="presentation"></div>
+    <div class="leaf leaf11" role="presentation"></div>
+    <div class="leaf leaf12" role="presentation"></div>
+    <div class="leaf leaf13" role="presentation"></div>
+    <div class="leaf leaf14" role="presentation"></div>
+    <div class="leaf leaf15" role="presentation"></div>
+    <div class="leaf leaf16" role="presentation"></div> 
+    <div class="leaf leaf17" role="presentation"></div>
+    <div class="leaf leaf18" role="presentation"></div>
+    <div class="leaf leaf19" role="presentation"></div>
+    <div class="leaf leaf20" role="presentation"></div>
+    <div class="leaf leaf21" role="presentation"></div>
+    <div class="leaf leaf22" role="presentation"></div>
+    <div class="leaf leaf23" role="presentation"></div>
+    <div class="leaf leaf24" role="presentation"></div>
+    <div class="leaf leaf25" role="presentation"></div>
+    <div class="leaf leaf26" role="presentation"></div>
+    <div class="leaf leaf27" role="presentation"></div>
+    <div class="leaf leaf28" role="presentation"></div>
+    <div class="leaf leaf29" role="presentation"></div>
+    <div class="leaf leaf30" role="presentation"></div>
+</div>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayurvedic Health Assistant</title>
+  <style>
+    :root {
+      --primary-color: #2e7d32;
+      --secondary-color: #81c784;
+      --bg-color: #f1f8e9;
+    }
+
+    #chatbot {
+      width: 350px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      border-radius: 15px;
+      overflow: hidden;
+      display: none;
+    }
+
+    .chat-header {
+      background: var(--primary-color);
+      color: white;
+      padding: 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #chat-window {
+      height: 400px;
+      background: var(--bg-color);
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 10px 15px;
+      border-radius: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .user-message {
+      background: var(--primary-color);
+      color: white;
+      align-self: flex-end;
+      border-bottom-right-radius: 5px;
+    }
+
+    .bot-message {
+      background: white;
+      align-self: flex-start;
+      border-bottom-left-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    #input-area {
+      display: flex;
+      padding: 15px;
+      background: white;
+    }
+
+    #user-input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      margin-right: 10px;
+      outline: none;
+    }
+
+    #send-btn {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #send-btn:hover {
+      background: #1b5e20;
+    }
+
+    .typing-indicator {
+      display: none;
+      padding: 10px;
+      font-style: italic;
+      color: #666;
+    }
+
+    .chat-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary-color);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .suggested-questions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    .suggested-question {
+      background: var(--secondary-color);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 0.9em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .suggested-question:hover {
+      background: #4caf50;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-toggle" onclick="toggleChat()">💬 Ayurvedic Help</div>
+  
+  <div id="chatbot">
+    <div class="chat-header" onclick="toggleChat()">
+      <h3>Ayurvedic Assistant</h3>
+      <span>▲</span>
+    </div>
+    <div id="chat-window">
+      <div class="message bot-message">Welcome! I'm here to help with Ayurvedic remedies. Ask me anything!</div>
+      <div class="typing-indicator">Bot is typing...</div>
+    </div>
+    <div id="input-area">
+      <input type="text" id="user-input" placeholder="Type your health concern...">
+      <button id="send-btn" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const chatbot = document.getElementById('chatbot');
+    const chatWindow = document.getElementById('chat-window');
+    const userInput = document.getElementById('user-input');
+    const typingIndicator = document.querySelector('.typing-indicator');
+
+    const responses = [
+      {
+        keywords: ['fever', 'temperature'],
+        answer: "For fever, drink tulsi (holy basil) tea, stay hydrated, and rest well. Herbal decoctions with ginger and black pepper can help. For more refer our website."
+        
+      },
+      {
+        keywords: ['back pain', 'backache'],
+        answer: "Apply warm sesame oil, practice yoga, and use turmeric in food to reduce inflammation and pain.For more refer our website."
+      },
+      {
+        keywords: ['cough', 'cold'],
+        answer: "Try ginger tea with honey, turmeric milk, and steam inhalation with eucalyptus oil.For more refer our website."
+      },
+        {
+            keywords: ['stress', 'anxiety'],
+            answer: "Practice deep breathing, meditation, and yoga. Drink chamomile tea and take Ashwagandha supplements.For more refer our website."
+        },
+        {
+            keywords: ['diabetes', 'blood sugar'],
+            answer: "Follow a low-carb diet, exercise regularly, and consume bitter gourd juice and fenugreek seeds.For more refer our website."
+        },
+        {
+            keywords: ['skin care', 'glowing skin'],
+            answer: "Use turmeric face masks, apply aloe vera gel, and drink plenty of water for healthy skin.For more refer our website."
+        },
+
+      // Add all other Q&A pairs here following the same structure
+      {
+        keywords: ['default'],
+        answer: "I'm here to help with Ayurvedic remedies. You can ask about: fever,back pain, cough, stress, diabetes, skin care, or other health concerns."
+      }
+    ];
+
+    function toggleChat() {
+      chatbot.style.display = chatbot.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function addMessage(message, isUser) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+      messageDiv.textContent = message;
+      chatWindow.appendChild(messageDiv);
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    function showTyping() {
+      typingIndicator.style.display = 'block';
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    function hideTyping() {
+      typingIndicator.style.display = 'none';
+    }
+
+    function getBotResponse(userMessage) {
+      const lowerMessage = userMessage.toLowerCase();
+      for (let response of responses) {
+        if (response.keywords.some(keyword => lowerMessage.includes(keyword))) {
+          return response.answer;
+        }
+      }
+      return responses.find(r => r.keywords.includes('default')).answer;
+    }
+
+    function sendMessage() {
+      const message = userInput.value.trim();
+      if (!message) return;
+
+      addMessage(message, true);
+      userInput.value = '';
+      
+      showTyping();
+      setTimeout(() => {
+        hideTyping();
+        const response = getBotResponse(message);
+        addMessage(response, false);
+      }, 1500);
+    }
+
+    // Event Listeners
+    userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    // Initialize with default message
+    addMessage("I'm here to help with Ayurvedic remedies. You can ask about: fever,back pain, cough, stress, diabetes, skin care, or other health concerns.", false);
+
+    
+ 
+  </script>
+</body>
+</html>
+    <script>
+// Store the initial state of the homepage
+const initialState = {
+    searchInput: '',
+    sidebarWidth: '0',
+    pageWrapperLeft: '0'
+};
+
+
+// Array of diseases with their corresponding page URLs
+const diseases = [
+    { name: "Cold and Cough", page: "11_coldandcough.html", synonyms: ["Flu,Common Cold, Runny Nose, Sore Throat, Sneezing, Nasal Congestion"] },
+    { name: "Indigestion", page: "22_indigestion.html", synonyms: ["Heartburn,Dyspepsia, Stomach Pain, Bloating, Upset Stomach, Acid Stomach"] },
+    { name: "Acidity", page: "33_acidity.html", synonyms: ["Heartburn,Heartburn, Acid Reflux, GERD, Burning Sensation, Gastric Issue"] },
+    { name: "Headache", page: "44_headache.html", synonyms: ["Migraine, Cephalalgia, Head Pain, Tension Headache, Sinus Headache"] },
+    { name: "Joint Pain", page: "55_jointpain.html", synonyms: ["Arthritis, Knee Pain, Rheumatism, Stiff Joints, Osteoarthritis"] },
+    { name: "Constipation", page: "66_constipation.html", synonyms: ["Hard Stools, Irregular Bowel Movements, Digestive Issue, Bloating"] },
+    { name: "Skin Rashes", page: "77_skinrashes.html", synonyms: ["Dermatitis, Itching, Eczema, Hives, Skin Allergy, Redness"] },
+    { name: "Obesity", page: "88_obesity.html", synonyms: ["Weight Gain, Overweight, Fat Accumulation, Body Fat, Metabolism Issue"] },
+    { name: "Toothache", page: "99_toothache.html", synonyms: ["Dental Pain, Cavity, Gum Pain, Tooth Sensitivity, Dental Infection"] },
+    { name: "Fever", page: "1010_fever.html", synonyms: ["High Temperature, Viral Fever, Body Heat, Chills, Temperature Spike"] },
+    { name: "Back Pain", page: "1111_backpain.html", synonyms: ["Lumbago, Lower Back Pain, Spine Pain, Posture Pain, Muscle Stiffness"] },
+    { name: "Sinusitis", page: "1212_sinusitis.html", synonyms: ["Sinus Infection, Nasal Congestion, Sinus Pressure, Facial Pain"] },
+    { name: "Anemia", page: "1313_anemia.html", synonyms: ["Low Hemoglobin, Weakness, Iron Deficiency, Fatigue, Pale Skin"] },
+    { name: "Diabetes", page: "1414_diabetes.html", synonyms: ["High Blood Sugar, Hyperglycemia, Type 1 Diabetes, Type 2 Diabetes"] },
+    { name: "Hypertension", page: "1515_hypertension.html", synonyms: ["High Blood Pressure, BP Issue, Hypertensive, Cardiovascular Risk"] },
+    { name: "COPD", page: "1616_copd.html", synonyms: ["Chronic Bronchitis, Lung Disease, Shortness of Breath, Wheezing"] },
+    { name: "Asthma", page: "1717_asthma.html", synonyms: ["Breathing Difficulty, Wheezing, Respiratory Problem, Chest Tightness"] },
+    { name: "Cystic Fibrosis", page: "1818r_cystic.html", synonyms: ["CF, Mucus Buildup, Genetic Lung Disease, Chronic Cough"] },
+    { name: "Hemophilia", page: "1919r_hemophilia.html", synonyms: ["Blood Clotting Disorder, Excessive Bleeding, Bruising Easily"] },
+    { name: "Ehlers-Danlos Syndrome", page: "2020_ehlers.html", synonyms: ["Hypermobile Joints, Loose Skin, Genetic Connective Tissue Disorder"] },
+    { name: "Pneumonia", page: "2121_pneumonia.html", synonyms: ["Lung Infection, Chest Pain, Difficulty Breathing, Coughing"] },
+    { name: "Chikungunya", page: "2222_chikungunya.html", synonyms: ["Mosquito-Borne Disease, Joint Pain, Rash, Fever, Muscle Pain"] },
+    { name: "Jaundice", page: "2323_jaundice.html", synonyms: ["Kamala", "Liver Disorder", "Yellow Skin", "Hyperbilirubinemia", "Pandu Roga", "Yakrit Vikara"] },
+    { name: "Typhoid", page: "2424_typhoid.html", synonyms: ["Enteric Fever", "Salmonella Infection", "High Fever", "Abdominal Pain", "Weakness", "Digestive Disorder"] },
+    { name: "Depression", page: "2525_depression.html", synonyms: ["Mood Disorder, Sadness, Hopelessness, Loss of Interest"] },
+    { name: "Burns", page: "2626_burns.html", synonyms: ["Thermal Injury", "Skin Damage", "Scalds", "Fire Injury", "Chemical Burns", "Electrical Burns"] },
+    { name: "Animal bites", page: "2727_animalbites.html", synonyms: ["Rabies Risk", "Infected Bite", "Wound Infection", "Venomous Bite", "Puncture Wound", "Toxic Bite"] },
+    { name: "Thyroid", page: "2828_thyroid.html", synonyms: ["Goiter", "Hypothyroidism", "Hyperthyroidism", "Thyroid Disorder", "Hormonal Imbalance", "Metabolic Disease"]},
+     { name: "Cancer", page: "2929_cancer.html", synonyms: ["Tumor, Malignancy, Chemotherapy, Radiation Therapy"] },
+    { name: "GBS", page: "3030_gbs.html", synonyms: ["Guillain-Barre Syndrome, Autoimmune Disorder, Nerve Damage, Paralysis"] },
+    { name: "Rabies", page: "3131_rabies.html", synonyms: ["Viral Infection, Animal Bite, Hydrophobia, Agitation"] },
+    { name: "Malaria", page: "3232_malaria.html", synonyms: ["Mosquito-Borne Disease, Fever, Chills, Sweating, Fatigue"] },
+    { name: "Loose Motions", page: "3333_loosemotions.html", synonyms:  ["Diarrhea", "Frequent Stools", "Watery Stools", "Digestive Disorder", "Intestinal Infection", "Gastroenteritis"] },
+    { name: "Piles", page: "3434_piles.html", synonyms: ["Hemorrhoids", "Anal Swelling", "Rectal Bleeding", "Anal Discomfort", "Swollen Veins", "Painful Bowel Movements"]},
+    
+];
+
+// Function to handle sidebar navigation
+function openNav() {
+    const sidebar = document.getElementById("mySidebar");
+    const pageWrapper = document.getElementById("pageWrapper");
+    
+    if (sidebar.style.width === "250px") {
+        closeNav();
+    } else {
+        sidebar.style.width = "250px";
+        pageWrapper.style.left = "125px";
+    }
+}
+
+function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("pageWrapper").style.left = "0";
+}
+
+function toggleDarkMode() {
+    const body = document.body;
+    const header = document.querySelector('.header');
+    const sidebar = document.querySelector('.sidebar');
+    const searchSection = document.querySelector('.search-section');
+    const button = document.getElementById('darkModeToggle');
+
+    body.classList.toggle('dark-mode');
+    header.classList.toggle('dark-mode');
+    sidebar.classList.toggle('dark-mode');
+    searchSection.classList.toggle('dark-mode');
+    button.classList.toggle('dark-mode');
+
+    // Optionally, you can save the user's preference in local storage
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        localStorage.setItem('darkMode', 'disabled');
+    }
+}
+
+// Check for saved user preference on page load
+document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        toggleDarkMode();
+    }
+});
+// Enhanced suggestion system
+function showSuggestions() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let suggestionsBox = document.getElementById("suggestions");
+    suggestionsBox.innerHTML = "";
+    
+    if (input === "") {
+        suggestionsBox.style.display = "none";
+        return;
+    }
+    
+    // Split input into multiple words
+    const searchWords = input.split(',').map(word => word.trim());
+    let allMatches = new Set();
+    
+    // Find matches for each word
+    searchWords.forEach(word => {
+        const matches = diseases.filter(disease => 
+            disease.name.toLowerCase().includes(word) || 
+            disease.synonyms.some(synonym => synonym.toLowerCase().includes(word))
+        );
+        matches.forEach(match => allMatches.add(match));
+    });
+    
+    // Create suggestion elements
+    Array.from(allMatches).forEach(match => {
+        let li = document.createElement("li");
+        li.textContent = match.name;
+
+         
+        // Create a string of synonyms to display
+        let synonymsString = match.synonyms.join(', ');
+        li.textContent += ` (Synonyms: ${synonymsString})`; // Append synonyms to the disease name
+        
+        li.addEventListener("click", function() {
+            document.getElementById("searchInput").value = match.name;
+            suggestionsBox.style.display = "none";
+            // Directly navigate to the disease page
+            window.location.href = match.page;
+        });
+        suggestionsBox.appendChild(li);
+    });
+    
+    suggestionsBox.style.display = allMatches.size > 0 ? "block" : "none";
+
+    // Display suggestions in a menu format
+    suggestionsBox.style.display = allMatches.size > 0 ? "block" : "none";
+
+    suggestionsBox.style.display = allMatches.size > 0 ? "block" : "none";
+
+}
+
+function displayRelatedKeywords(disease) {
+    const relatedKeywordsList = document.getElementById("relatedKeywordsList");
+    relatedKeywordsList.innerHTML = ""; // Clear previous keywords
+    const keywords = disease.synonyms[0].split(','); // Assuming synonyms are comma-separated
+
+    keywords.forEach(keyword => {
+        let li = document.createElement("li");
+        li.textContent = keyword.trim();
+        relatedKeywordsList.appendChild(li);
+    });
+
+    document.getElementById("relatedKeywords").style.display = "block"; // Show the related keywords section
+}
+
+// Enhanced search function for direct page navigation
+function searchRemedy() {
+    let query = document.getElementById("searchInput").value.toLowerCase();
+    if (query.trim() === "") {
+        Swal.fire('Please enter at least one disease name.');
+        alert("Please enter at least one disease name.");
+        return;
+    }
+    
+    // Search for exact or partial matches
+    const matchedDisease = diseases.find(disease => 
+        disease.name.toLowerCase().includes(query)
+    );
+    
+    if (matchedDisease) {
+        // Store the search term in session storage
+        sessionStorage.setItem('lastSearch', query);
+         // Display related keywords
+         displayRelatedKeywords(matchedDisease);
+        // Navigate directly to the disease page
+        window.location.href = matchedDisease.page;
+    } else {
+        // If no match found, show alert
+        alert("No specific remedy page found for this disease. Please try another search term.");
+    }
+}
+
+function displaySynonyms() {
+    const synonymList = document.getElementById("synonymList");
+    synonymList.innerHTML = ""; // Clear previous synonyms
+    const allSynonyms = new Set();
+
+    // Collect all synonyms from the diseases array
+    diseases.forEach(disease => {
+        disease.synonyms.forEach(synonym => {
+            synonym.split(',').forEach(word => {
+                allSynonyms.add(word.trim());
+            });
+        });
+    });
+
+    // Create list items for each synonym
+    allSynonyms.forEach(synonym => {
+        let li = document.createElement("li");
+        li.textContent = synonym;
+        li.addEventListener("click", function() {
+            document.getElementById("searchInput").value = synonym; // Set the input to the clicked synonym
+            document.getElementById("synonymSuggestions").style.display = "none"; // Hide the synonyms dropdown
+        });
+        synonymList.appendChild(li);
+    });
+
+    document.getElementById("synonymSuggestions").style.display = allSynonyms.size > 0 ? "block" : "none"; // Show the synonyms section
+}
+
+// Function to reset homepage to initial state
+function resetHomepage() {
+    // Clear search input
+    document.getElementById("searchInput").value = initialState.searchInput;
+    
+    // Reset sidebar
+    document.getElementById("mySidebar").style.width = initialState.sidebarWidth;
+    document.getElementById("pageWrapper").style.left = initialState.pageWrapperLeft;
+    
+    // Clear suggestions
+    const suggestionsBox = document.getElementById("suggestions");
+    suggestionsBox.innerHTML = "";
+    suggestionsBox.style.display = "none";
+    
+    // Clear any stored searches
+    sessionStorage.removeItem('lastSearch');
+}
+
+// Event listener for back navigation
+window.addEventListener('popstate', function(event) {
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+        resetHomepage();
+    }
+});
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if we're on the homepage
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+        resetHomepage();
+    }
+    
+    // Add event listener for search input
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchRemedy();
+            }
+        });
+    }
+});
+
+// Function to fade in news items
+function fadeInNewsItems() {
+    const newsItems = document.querySelectorAll('#newsList li');
+    newsItems.forEach((item, index) => {
+        item.style.opacity = 0; // Start with hidden
+        item.style.transition = `opacity 0.5s ease ${index * 0.1}s`; // Staggered effect
+        setTimeout(() => {
+            item.style.opacity = 1; // Fade in
+        }, 100);
+    });
+}
+
+// Call the fadeInNewsItems function when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', fadeInNewsItems);
+    </script>
+</body>
+</html>
+
+
+
+

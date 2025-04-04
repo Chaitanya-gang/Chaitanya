@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>AYURWEB - COPD Remedies</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+        }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #004d40;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #00695c;
+        }
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+        }
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #004d40;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            border-radius: 5px;
+            z-index: 2;
+        }
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: rgba(0, 77, 64, 0.9);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .tab-container {
+            margin: 20px 0;
+        }
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tab-button {
+            padding: 10px 20px;
+            background: #004d40;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        .video-link {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.video-link:hover {
+    transform: scale(1.05);
+}
+
+.video-link h3 {
+    color: #004d40; /* Match the theme color */
+}
+
+.video-link a {
+    font-weight: bold;
+    color: white; /* Button text color */
+}
+
+.tab-button {
+    padding: 10px 20px;
+    background: #004d40;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Add transition */
+}
+
+.tab-button:hover {
+    background: #00695c; /* Change background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+.sidebar a {
+    transition: background 0.3s, transform 0.2s; /* Add transition */
+}
+
+.sidebar a:hover {
+    background-color: #00695c; /* Change background on hover */
+    transform: translateX(5px); /* Slide effect */
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Fade effect */
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1; /* Show when active */
+}
+
+.comment-section {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#comment {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+    </style>
+</head>
+<body>
+    <button class="openbtn" onclick="openNav()">☰ Menu</button>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="1homepage.html"><i class="fas fa-home"></i> Home</a>
+        <a href="2categories.html"><i class="fas fa-th-list"></i> Categories</a>
+        <a href="3knowmore.html"><i class="fas fa-info-circle"></i> Know More</a>
+        <a href="4contactus.html"><i class="fas fa-envelope"></i> Contact Us</a>
+    </div>
+    <div class="main-content">
+        <div class="header">
+            <h1>AYURWEB</h1>
+            <p>Common Diseases - Chronic Obstructive Pulmonary Disease (COPD)</p>
+        </div>
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-button" onclick="openTab('symptoms')">Symptoms</button>
+                <button class="tab-button" onclick="openTab('remedies')">Remedies</button>
+                <button class="tab-button" onclick="openTab('lifestyle')">Lifestyle</button>
+            </div>
+            <div id="symptoms" class="tab-content active">
+                <h3>Symptoms</h3>
+                <ul>
+                    <li>Shortness of breath</li>
+                    <li>Chronic cough</li>
+                    <li>Wheezing</li>
+                </ul>
+                <h3>Symptoms to Not Ignore</h3>
+                <ul>
+                    <li>Increased mucus production</li>
+                    <li>Chest tightness</li>
+                </ul>
+            </div>
+            <div id="remedies" class="tab-content">
+                <h3>Ayurvedic Remedies</h3>
+                <ul>
+                    <li>Turmeric and tulsi decoction</li>
+                    <li>Warm ginger tea</li>
+                </ul>
+                <h3>Normal Remedies</h3>
+                <ul>
+                    <li>Adherence to prescribed medications</li>
+                    <li>Pulmonary rehabilitation</li>
+                </ul>
+            </div>
+            <div id="lifestyle" class="tab-content">
+                <h3>Eating Tips</h3>
+                <ul>
+                    <li>Small, frequent meals</li>
+                    <li>Protein-rich foods for energy</li>
+                    <li>Stay hydrated</li>
+                </ul>
+                <h3>Healthy Fruits</h3>
+                <ul>
+                    <li>Apples and pears for antioxidants</li>
+                    <li>Citrus fruits for vitamin C</li>
+                </ul>
+                <h3>Yoga Activities</h3>
+                <ul>
+                    <li>Pranayama (breathing exercises)</li>
+                    <li>Gentle lung expansion exercises</li>
+                </ul>
+                <h3>Physical and Mental Exercises</h3>
+                <ul>
+                    <li>Light physical activities</li>
+                    <li>Relaxation techniques</li>
+                </ul>
+            </div>
+        </div>
+        <div class="stat-box">
+            <h3>Quick Statistics</h3>
+            <p>Duration: Chronic, requires long-term management</p>
+            <p>Medicine Cost: ₹500 - ₹3,000 per month</p>
+            <p>Prevalence: Affects approximately 28 million people in India</p>
+            <p>Consequences: Reduced lung function, increased risk of other illnesses</p>
+        </div>
+
+          <!-- Insert the video link here -->
+    <div class="video-link text-center my-4 p-3" style="background-color: rgba(255, 255, 255, 0.8); border-radius: 10px;">
+        <h3 class="font-weight-bold">Watch Our Natural Remedies for COPD</h3>
+        <p>For more information, watch our video: 
+            <a href=https://www.youtube.com/watch?v=JwRG8AsStLQ
+            target="_blank" class="btn btn-primary btn-lg" style="text-decoration: none;">Watch Our Natural Remedies for COPD </a>
+        </p>
+    </div>
+
+    
+    <div class="comment-section">
+        <h3>Leave a Comment</h3>
+        <form id="commentForm">
+            <textarea id="comment" rows="4" placeholder="Share your experience..." required></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="commentsList" class="mt-3">
+            <h4>Comments:</h4>
+            <ul id="comments"></ul>
+        </div>
+    </div>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+
+        function openTab(tabName) {
+            var i, tabContent;
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+        }
+    </script>
+    <script>
+        function openTab(tabName) {
+            var i, tabContent;
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].classList.remove("active");
+                tabContent[i].style.display = "none"; // Hide all tabs
+            }
+            var activeTab = document.getElementById(tabName);
+            activeTab.style.display = "block"; // Show the active tab
+            setTimeout(() => {
+                activeTab.classList.add("active"); // Add active class after display
+            }, 10); // Delay to allow display to take effect
+        }
+        
+        
+        document.getElementById('commentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+        
+            var commentText = document.getElementById('comment').value;
+            var commentsList = document.getElementById('comments');
+        
+            // Create a new list item for the comment
+            var newComment = document.createElement('li');
+            newComment.textContent = commentText;
+            commentsList.appendChild(newComment);
+        
+            // Clear the textarea
+            document.getElementById('comment').value = '';
+        });
+            </script>
+</body>
+</html>

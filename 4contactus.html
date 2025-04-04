@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYURWEB - Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .container {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+#subscriptionForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contactInfo {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #004d40;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00796b;
+}
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            color: #333;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        h2 {
+            color: #004d40;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .contact-info {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .contact-info p {
+            background: #e0f2f1;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 5px 0;
+            transition: background 0.3s;
+        }
+        .contact-info p:hover {
+            background: #b2dfdb;
+        }
+        .specialty {
+            margin-top: 30px;
+            border-top: 2px solid #004d40;
+            padding-top: 20px;
+        }
+        .specialty h4 {
+            color: #00796b;
+            margin-top: 15px;
+            transition: color 0.3s;
+        }
+        .specialty h4:hover {
+            color: #004d40;
+        }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #004d40;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background: #00796b;
+        }
+        .sidebar .closebtn {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #004d40;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            transition: background 0.3s;
+        }
+        .openbtn:hover {
+            background-color: #00796b;
+        }
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .openbtn {
+                font-size: 18px;
+                padding: 8px 12px;
+            }
+        }
+
+        .fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+.shop-now {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+.shop-now a {
+    color: #fff;
+    display: block;
+    margin: 5px 0;
+    transition: color 0.3s;
+}
+.shop-now a:hover {
+    color: #00796b;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    background: #004d40;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Add transition */
+}
+
+.tab-button:hover {
+    background: #00695c; /* Change background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+.sidebar a {
+    transition: background 0.3s, transform 0.2s; /* Add transition */
+}
+
+.sidebar a:hover {
+    background-color: #00695c; /* Change background on hover */
+    transform: translateX(5px); /* Slide effect */
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Fade effect */
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1; /* Show when active */
+}
+
+
+    </style>
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+    </script>
+</head>
+<body>
+    <button class="openbtn" onclick="openNav()">☰ Menu</button>
+    <div  class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="1homepage.html" target="_blank">
+            <i class="fas fa-home"></i>Home</a>
+        <a href="2categories.html" target="_blank"><i class="fas fa-th-list"></i> Categories</a>
+        <a href="3knowmore.html" target="_blank"><i class="fas fa-info-circle"></i> Know More</a>
+        <a href="4contactus.html" target="_blank"><i class="fas fa-envelope"></i> Contact Us</a>
+    </div>
+    
+    
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="openNav()">×</a>
+        <a href="1homepage.html" target="_blank">
+            <i class="fas fa-home"></i>Home</a>
+        <a href="2categories.html"><i class="fas fa-th-list"></i> Categories</a>
+        <a href="3knowmore.html" target="_blank"><i class="fas fa-info-circle"></i> Know More</a>
+        <a href="4contactus.html" target="_blank"><i class="fas fa-envelope"></i> Contact Us</a>
+        <a href="user_info_form.html"><i class="fas fa-user"></i> User Information Form</a>
+    
+        <div class="shop-now">
+            <h4 style="color: #fff; padding: 10px;">Shop Now</h4>
+            <a href="https://www.amazon.in/s?k=ayurveda+products&crid=25PM7M133DU05&sprefix=ayurveda+%2Caps%2C202&ref=nb_sb_ss_ts-doa-p_5_9" target="_blank"><i class="fab fa-amazon"></i> Amazon</a>
+            <a href="https://www.patanjaliayurved.net/" target="_blank"><i class="fas fa-store"></i> Patanjali</a>
+            <a href="https://www.flipkart.com/health-care/home-medicines/general-wellness/ayurvedic/pr?sid=hlc%2Cah4%2Ciav%2Cjnk" target="_blank"><i class="fas fa-shopping-cart"></i> Flipkart</a>
+            <a href="https://pharmeasy.in/health-care" target="_blank"><i class="fas fa-medkit"></i> Pharm Easy</a>
+        </div>
+    </div>
+
+    
+    <div class="container">
+        <h2>Subscribe for Daily Health Tips</h2>
+        <form id="subscriptionForm">
+            <input type="text" id="contactInfo" placeholder="Enter your Email/WhatsApp Number" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-user"></i>Our Guidance- "Prof. Ravishankar Bhaganagare"</p>
+            <p><i class="fas fa-phone"></i>Vedant Ghodake : 7666431776</p>
+            <p><i class="fas fa-phone"></i>Govind Gandhi : 8459291929</p>
+            <p><i class="fas fa-phone"></i>Chaitanya Gangwal : 9371854108</p>
+            <p><i class="fas fa-phone"></i>Riya Gattani : 9370420239</p>
+            <p><i class="fas fa-phone"></i>Akansha Gawade : 9356500890</p>
+            <p><i class="fas fa-phone"></i>Ishan Garud : 7020556527</p>
+        </div>
+        <div class="specialty">
+            <h3>Our Specialists</h3>
+            <h4>Infectious Diseases</h4>
+            <p>Dr. Raman Gaikwad: 18 years of experience, Sahyadri Hospital, Deccan Gymkhana.</p>
+            <p>Dr. Piyush Ashok Chaudhari: 17 years of experience, Prime Clinics, Camp.</p>
+            
+            <h4>Cardiology</h4>
+            <p>Dr. Purvez Grant: Chief Cardiologist & Managing Trustee, Ruby Hall Clinic.</p>
+            <p>Dr. Jagdish Hiremath: Cardiologist, Ruby Hall Clinic.</p>
+
+            <h4>Neurology</h4>
+            <p>Dr. Abhijeet Benare: Consultant Neurologist, Jupiter Hospital, Pune.</p>
+            <p>Dr. Abhijeet Naik: Consultant Neurologist, Jupiter Hospital, Pune.</p>
+
+            <h4>Gastroenterology</h4>
+            <p>Dr. Nitin Pai: Consultant Gastroenterologist, Ruby Hall Clinic.</p>
+            <p>Dr. Sahil Rasane: Consultant Gastroenterologist, Ruby Hall Clinic.</p>
+
+            <h4>Pulmonology</h4>
+            <p>Dr. Mahavir Modi: Chest Medicine Specialist, Ruby Hall Clinic.</p>
+            <p>Dr. Amir Khoja: Chest Medicine Specialist, Ruby Hall Clinic.</p>
+
+            <h4>Endocrinology</h4>
+            <p>Dr. R. Nagarajan: Endocrine Surgeon, Ruby Hall Clinic.</p>
+
+            <h4>Dermatology</h4>
+            <p>Dr. Rahul Sanap: Dermatologist with 15 years of experience, PRIME SKIN DOCTORS, Pune.</p>
+
+            <h4>Nephrology</h4>
+            <p>Dr. Anil Godbole: Director of Medicine & Consultant in Nephrology, KEM Hospital, Pune.</p>
+            <p>Dr. Farrokh Wadia: Director of Renal Unit & Senior Physician, KEM Hospital, Pune.</p>
+
+            <h4>Oncology</h4>
+            <p>Dr. Sadanand Karandikar: Medical Oncologist, Ruby Hall Clinic.</p>
+            <p>Dr. Minish Jain: Medical Oncologist, Ruby Hall Clinic.</p>
+
+            <h4>Orthopedics</h4>
+            <p>Dr. Aditya Date: Consultant Orthopedic Surgeon, Jupiter Hospital, Pune.</p>
+            <p>Dr. Ameya R. Pathak: Consultant Orthopedic Surgeon, Jupiter Hospital, Pune.</p>
+
+            <h4>Pediatrics</h4>
+            <p>Dr. Mubashshir Khan: Pediatrician with 17 years of experience, Manipal Hospitals, Baner.</p>
+
+            <h4>General Medicine</h4>
+            <p>Dr. Amar Raykantiwar: General Physician with 18 years of experience, Atarva Diabetes Care Centre, Sinhagad Road.</p>
+            <p>Dr. Abhay B. Mane: General Physician with 22 years of experience, Diabelife (Diabetes Speciality Clinic), Wakad.</p>
+        </div>
+    </div>
+
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">AYURWEB</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="1homepage.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="2categories.html">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="3knowmore.html">Know More</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="4contactus.html">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <script>
+        document.getElementById('subscriptionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const contactInfo = document.getElementById('contactInfo').value;
+    
+            // Here you would typically send the contactInfo to your backend
+            console.log('Subscribed:', contactInfo);
+    
+            // Show a success message
+            alert('Thank you for subscribing! You will receive daily health tips.');
+    
+            // Optionally, clear the input field
+            document.getElementById('contactInfo').value = '';
+        });
+    
+        // Function to show pop-up tips
+        function showTip() {
+            const tips = [
+                "Drink plenty of water to stay hydrated.",
+                "Incorporate more fruits and vegetables into your diet.",
+                "Practice yoga for better mental health.",
+                "Get at least 7-8 hours of sleep every night.",
+                "Take a walk daily to improve your cardiovascular health."
+            ];
+            const randomTip = tips[Math.floor(Math.random() * tips.length)];
+            alert(randomTip);
+        }
+    
+        // Show a tip when the page loads
+        window.onload = function() {
+            showTip();
+        };
+
+        // Use AJAX for form submission
+$('#subscriptionForm').on('submit', function(event) {
+    event.preventDefault();
+    const contactInfo = $('#contactInfo').val();
+    
+    $.ajax({
+        url: '/subscribe', // Your backend endpoint
+        method: 'POST',
+        data: { contactInfo },
+        success: function() {
+            $('#contactInfo').val('');
+            $('#subscriptionModal').modal('show'); // Show a Bootstrap modal
+        }
+    });
+});
+    </script>
+</body>
+</html>

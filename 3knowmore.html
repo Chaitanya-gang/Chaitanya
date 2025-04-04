@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>AYURWEB - Know More</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #fff;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            color: #333;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            color: #004d40;
+            margin-bottom: 15px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .section ul li {
+            background: #e0f2f1;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #004d40;
+            color: white;
+        }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #004d40;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #00695c;
+        }
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #004d40;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            border-radius: 5px;
+            z-index: 2;
+        }
+        .section {
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .section.visible {
+            opacity: 0;
+        }
+        #progressForm {
+            margin-bottom: 20px;
+        }
+        #progressForm label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        #progressForm input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        #progressList {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .shop-now {
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        .shop-now a {
+            color: #fff;
+            display: block;
+            margin: 5px 0;
+            transition: color 0.3s;
+        }
+        .shop-now a:hover {
+            color: #00796b;
+        }
+        .section {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .section:hover {
+            background-color: #e0f7fa; /* Lighten background on hover */
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            .section {
+                margin-bottom: 20px;
+            }
+        }
+
+        .tab-button {
+    padding: 10px 20px;
+    background: #004d40;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Add transition */
+}
+
+.tab-button:hover {
+    background: #00695c; /* Change background on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+.sidebar a {
+    transition: background 0.3s, transform 0.2s; /* Add transition */
+}
+
+.sidebar a:hover {
+    background-color: #00695c; /* Change background on hover */
+    transform: translateX(5px); /* Slide effect */
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Fade effect */
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1; /* Show when active */
+}
+
+    </style>
+</head>
+<body>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about health, diseases, and Ayurvedic remedies.">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <button class="openbtn" onclick="openNav()">☰ Menu</button>
+    <div class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="1homepage.html" target="_blank">
+            <i class="fas fa-home"></i>Home</a>
+        <a href="2categories.html" target="_blank"><i class="fas fa-th-list"></i> Categories</a>
+        <a href="3knowmore.html" target="_blank"><i class="fas fa-info-circle"></i> Know More</a>
+        <a href="4contactus.html" target="_blank"><i class="fas fa-envelope"></i> Contact Us</a>
+    </div>
+    
+    
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="openNav()">×</a>
+        <a href="1homepage.html" target="_blank">
+            <i class="fas fa-home"></i>Home</a>
+        <a href="2categories.html"><i class="fas fa-th-list"></i> Categories</a>
+        <a href="3knowmore.html" target="_blank"><i class="fas fa-info-circle"></i> Know More</a>
+        <a href="4contactus.html" target="_blank"><i class="fas fa-envelope"></i> Contact Us</a>
+        <a href="user_info_form.html"><i class="fas fa-user"></i> User Information Form</a>
+    
+        <div class="shop-now">
+            <h4 style="color: #fff; padding: 10px;">Shop Now</h4>
+            <a href="https://www.amazon.in/s?k=ayurveda+products&crid=25PM7M133DU05&sprefix=ayurveda+%2Caps%2C202&ref=nb_sb_ss_ts-doa-p_5_9" target="_blank"><i class="fab fa-amazon"></i> Amazon</a>
+            <a href="https://www.patanjaliayurved.net/" target="_blank"><i class="fas fa-store"></i> Patanjali</a>
+            <a href="https://www.flipkart.com/health-care/home-medicines/general-wellness/ayurvedic/pr?sid=hlc%2Cah4%2Ciav%2Cjnk" target="_blank"><i class="fas fa-shopping-cart"></i> Flipkart</a>
+            <a href="https://pharmeasy.in/health-care" target="_blank"><i class="fas fa-medkit"></i> Pharm Easy</a>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if(target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                }
+            });
+        });
+    </script>
+    <button id="backToTop" class="btn btn-primary" style="display: none; position: fixed; bottom: 20px; right: 20px;">↑</button>
+    <div class="container">
+        <h2>Know More About Health & Diseases</h2>
+        <div class="section">
+            <h3>Overview of Diseases</h3>
+            <ul>
+                <li><b>Common Diseases:</b> Cold, Indigestion, Acidity, Headache, Joint Pain, etc.</li>
+                <li><b>Newly Added:</b> Diabetes, Hypertension, COPD, Asthma</li>
+                <li><b>Rare Diseases:</b> Cystic Fibrosis, Hemophilia, Ehlers-Danlos Syndrome</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>Simple Progress Tracker</h3>
+            <form id="progressForm">
+                <label for="totalDays">Total Days to Exercise:</label>
+                <input type="number" id="totalDays" name="totalDays" min="1" required>
+                <label for="completedDays">Days Completed:</label>
+                <input type="number" id="completedDays" name="completedDays" min="0" required>
+                <button type="submit" class="btn btn-success">Submit Progress</button>
+            </form>
+            <div id="progressList" style="margin-top: 20px;">
+                <h4>Your Progress:</h4>
+                <ul id="progressItems"></ul>
+            </div>
+            <div class="progress" style="margin-top: 20px;">
+                <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+            </div>
+        </div>
+        <div class="section">
+            <h3>Ayurvedic vs. Modern Medicine</h3>
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>Ayurvedic Medicine</th>
+                    <th>Modern Medicine</th>
+                </tr>
+                <tr>
+                    <td>Approach</td>
+                    <td>Holistic healing, balancing body elements</td>
+                    <td>Targeted treatment for symptoms</td>
+                </tr>
+                <tr>
+                    <td>Side Effects</td>
+                    <td>Minimal if taken properly</td>
+                    <td>Possible due to chemicals</td>
+                </tr>
+                <tr>
+                    <td>Duration</td>
+                    <td>Gradual healing over time</td>
+                    <td>Quick relief, but may not address root cause</td>
+                </tr>
+            </table>
+        </div>
+        <div class="section">
+            <h3>Importance of Early Diagnosis</h3>
+            <ul>
+                <li>Helps in timely treatment and prevention of complications</li>
+                <li>Reduces medical expenses on advanced treatments</li>
+                <li>Prevents spread of infectious diseases</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>Preventive Healthcare</h3>
+            <ul>
+                <li>Eat a balanced diet rich in nutrients</li>
+                <li>Exercise regularly for better physical health</li>
+                <li>Stay hydrated to support body functions</li>
+                <li>Routine checkups for early detection of diseases</li>
+                <li>Maintain hygiene to prevent infections</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>Health Tips & Natural Remedies</h3>
+            <ul>
+                <li><strong>Cold & Cough:</strong> Drink ginger tea with honey</li>
+                <li><strong>Acidity:</strong> Consume buttermilk with cumin seeds</li>
+                <li><strong>Headache:</strong> Apply peppermint oil for relief</li>
+                <li><strong>Joint Pain:</strong> Use turmeric and ginger for anti-inflammation</li>
+                <li><strong>Fever:</strong> Drink tulsi (holy basil) tea for immunity boost</li>
+            </ul>
+        </div>
+        <h3>Conclusion</h3>
+        <p>Understanding diseases, balancing modern and traditional medicine, prioritizing early diagnosis, and following preventive care can lead to a healthier life.</p>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+        }
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+    </script>
+    <script>
+        document.getElementById('progressForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const totalDays = parseInt(document.getElementById('totalDays').value);
+            const completedDays = parseInt(document.getElementById('completedDays').value);
+            if (totalDays <= 0 || completedDays < 0 || completedDays > totalDays) {
+                alert('Please enter valid numbers for total days and completed days.');
+                return;
+            }
+            const progress = (completedDays / totalDays) * 100;
+            const progressItems = document.getElementById('progressItems');
+            progressItems.innerHTML = ''; // Clear previous progress items
+            const newItem = document.createElement('li');
+            newItem.textContent = `Total Days: ${totalDays}, Completed Days: ${completedDays}, Progress: ${progress.toFixed(2)}%`;
+            progressItems.appendChild(newItem);
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = `${progress}%`;
+            progressBar.setAttribute('aria-valuenow', progress);
+            progressBar.textContent = `${progress.toFixed(2)}%`;
+            document.getElementById('totalDays').value = '';
+            document.getElementById('completedDays').value = '';
+        });
+    </script>
+</body>
+</html>
